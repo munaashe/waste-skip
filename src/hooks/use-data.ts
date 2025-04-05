@@ -2,8 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import { Skip, FetchError } from '../utils/types';
 
 const fetchData = async (): Promise<Skip[]> => {
+    const baseUrl = import.meta.env.VITE_API_BASE_URL; 
     const response = await fetch(
-        'https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft'
+        `${baseUrl}/skips/by-location?postcode=NR32&area=Lowestoft`
     );
 
     if (!response.ok) {
